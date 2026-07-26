@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gear Vault & Inventory</title>
+    <style>
+        /* Modern Reset & Dark Theme Variables */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        :root {
+            --bg-dark: #121214;
+            --bg-card: #1a1a1e;
+            --accent-gold: #d4af37;
+            --accent-red: #cc2929;
+            --text-main: #f5f5f7;
+            --text-muted: #a0a0aa;
+            --border-color: #2a2a30;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Typography & Sections */
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 2rem;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+        header p {
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+        section {
+            margin-bottom: 4rem;
+        }
+        .section-title {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            padding-left: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .vault-title { border-left: 4px solid var(--accent-gold); }
+        .sales-title { border-left: 4px solid var(--accent-red); }
+
+        /* The Grid Layout */
+        .gear-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Card Styling */
+        .gear-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .gear-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+        }
+
+        /* Image Placeholder Box */
+        .image-placeholder {
+            width: 100%;
+            height: 220px;
+            background-color: #25252b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-style: italic;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+        /* If you add real images later, they will fit perfectly using this class */
+        .image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Content inside the card */
+        .card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .card-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+        .specs-list {
+            list-style: none;
+            margin: 1rem 0;
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--border-color);
+        }
+        .specs-list li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+        }
+        .specs-list strong {
+            color: var(--text-main);
+        }
+
+        /* Badges & Tags */
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+            align-self: flex-start;
+        }
+        .badge-vault { background-color: rgba(212, 175, 55, 0.15); color: var(--accent-gold); }
+        .badge-sale { background-color: rgba(204, 41, 41, 0.15); color: var(--accent-red); }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Guitar & Gear Inventory</h1>
+            <p>Spec sheets, history, and current status of the collection</p>
+        </header>
+
+        <section>
+            <h2 class="section-title vault-title">The Vault</h2>
+            <div class="gear-grid">
+
+                <div class="gear-card">
+                    <div class="image-placeholder">[ Insert 1977 Gibson Photo Here ]</div>
+                    <div class="card-content">
+                        <span class="badge badge-vault">Core Collection</span>
+                        <h3>1977 Gibson Les Paul Custom</h3>
+                        <p>Classic late-70s Norlin-era powerhouse known for massive sustain and a heavy rock footprint.</p>
+                        <ul class="specs-list">
+                            <li><strong>Neck:</strong> 3-Piece Maple</li>
+                            <li><strong>Fretboard:</strong> Ebony</li>
+                            <li><strong>Body:</strong> Solid Mahogany / Maple Top</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="gear-card">
+                    <div class="image-placeholder">[ Insert Ibanez JEM Photo Here ]</div>
+                    <div class="card-content">
+                        <span class="badge badge-vault">Core Collection</span>
+                        <h3>Ibanez JEM7V Steve Vai Signature</h3>
+                        <p>High-performance shred platform featuring the iconic monkey grip handle and intricate detailing.</p>
+                        <ul class="specs-list">
+                            <li><strong>Features:</strong> Monkey Grip & Lion's Claw Tremolo</li>
+                            <li><strong>Inlays:</strong> Abalone Tree of Life Vine</li>
+                            <li><strong>Pickups:</strong> DiMarzio Evolution (HSH)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="gear-card">
+                    <div class="image-placeholder">[ Insert ESP Photo Here ]</div>
+                    <div class="card-content">
+                        <span class="badge badge-vault">Core Collection</span>
+                        <h3>ESP Kirk Hammett Edition</h3>
+                        <p>Built for speed and aggressive thrash rhythms, designed around Hammett's iconic live setups.</p>
+                        <ul class="specs-list">
+                            <li><strong>Neck Profile:</strong> Extra Thin-U</li>
+                            <li><strong>Inlays:</strong> Skull & Crossbones</li>
+                            <li><strong>Bridge:</strong> Double-Locking Floyd Rose</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="gear-card">
+                    <div class="image-placeholder">[ Insert Schecter Photo Here ]</div>
+                    <div class="card-content">
+                        <span class="badge badge-vault">Core Collection</span>
+                        <h3>Schecter C-1 FR S (Blood Red)</h3>
+                        <p>A striking modern rock machine outfitted with electronic infinite sustain capabilities.</p>
+                        <ul class="specs-list">
+                            <li><strong>Neck Pickup:</strong> Sustainiac System</li>
+                            <li><strong>Colorway:</strong> Transparent Blood Red</li>
+                            <li><strong>Hardware:</strong> Grover Tuners / Floyd Rose</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="gear-card">
+                    <div class="image-placeholder">[ Insert Dean Photo Here ]</div>
+                    <div class="card-content">
+                        <span class="badge badge-vault">Core Collection</span>
+                        <h3>Dean Dave Mustaine VMNT Flying V</h3>
+                        <p>Aggressive King V build tailored specifically for fast, precise thrash metal rhythm tracking.</p>
+                        <ul class="specs-list">
+                            <li><strong>Neck Shape:</strong> Custom D-Profile</li>
+                            <li><strong>Tailpiece:</strong> String-Through-Body</li>
+                            <li><strong>Vibe:</strong> Megadeth Era Styling</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title sales-title">The Trading Post (Available for Sale/Trade)</h2>
+            <div class="gear-grid">
+
+                <div class="gear-card">
+                    <div class="image-placeholder">[ Insert Crackle Jack Photo Here ]</div>
+                    <div class="card-content">
+                        <span class="badge badge-sale">For Sale / Trade</span>
+                        <h3>Jackson "Crackle Jack"</h3>
+                        <p>Pure 80s/90s aesthetic. Highly stylized finish with a fast neck profile built for lead playing.</p>
+                        <ul class="specs-list">
+                            <li><strong>Finish:</strong> Retro Crackle Pattern</li>
+                            <li><strong>Headstock:</strong> Classic Pointed Jackson</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="gear-card">
+                    <div class="image-placeholder">[ Insert Pink LP Photo Here ]</div>
+                    <div class="card-content">
+                        <span class="badge badge-sale">For Sale / Trade</span>
+                        <h3>Pink Les Paul Style</h3>
+                        <p>Single-cutaway layout with a unique, high-visibility custom finish. Solid alternative rock machine.</p>
+                        <ul class="specs-list">
+                            <li><strong>Body Style:</strong> Single-Cut / Arched Top</li>
+                            <li><strong>Finish:</strong> Gloss Pink</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="gear-card">
+                    <div class="image-placeholder">[ Insert Leo Jaymz Photo Here ]</div>
+                    <div class="card-content">
+                        <span class="badge badge-sale">For Sale / Trade</span>
+                        <h3>Leo Jaymz Model</h3>
+                        <p>Ergonomic modern build offering incredible performance value. Highly reliable backup instrument.</p>
+                        <ul class="specs-list">
+                            <li><strong>Type:</strong> Modern Solidbody</li>
+                            <li><strong>Utility:</strong> Perfect modding or gigging platform</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="gear-card">
+                    <div class="image-placeholder">[ Insert White/Purple Photo Here ]</div>
+                    <div class="card-content">
+                        <span class="badge badge-sale">For Sale / Trade</span>
+                        <h3>White & Purple Center-Stripe</h3>
+                        <p>Custom graphic layout featuring a bold purple accent block down the center line of a white body.</p>
+                        <ul class="specs-list">
+                            <li><strong>Aesthetic:</strong> Custom center-stripe graphic</li>
+                            <li><strong>Hardware:</strong> Chrome configurations</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
